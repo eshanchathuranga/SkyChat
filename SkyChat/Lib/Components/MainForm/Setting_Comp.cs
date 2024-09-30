@@ -16,8 +16,10 @@ namespace SkyChat.Lib.Components.MainForm
 {
     public partial class Setting_Comp : UserControl
     {
+        // Define a object og Get File Path
+        GetFilePath getFilePath;
         // Define a AuthConfig File Path
-        private string AuthConfigPath = @"C:\\Users\\User\\Desktop\\Last_Project\\SkyChat\\SkyChat\\Lib\\Config\\AuthConfig.json";
+        private string AuthConfigPath;
         // Create a object of AuthConfig
         AuthConfig authConfig;
         // Create a object of ServerConnection
@@ -33,6 +35,10 @@ namespace SkyChat.Lib.Components.MainForm
         public Setting_Comp()
         {
             InitializeComponent();
+            // Create a object og get file path
+            this.getFilePath = new GetFilePath();
+            // Get File path
+            this.AuthConfigPath = getFilePath.GetConfigFilePath("AuthConfig.json");
             // Read the AuthConfig file
             string json = System.IO.File.ReadAllText(AuthConfigPath);
             this.authConfig = JsonConvert.DeserializeObject<AuthConfig>(json);

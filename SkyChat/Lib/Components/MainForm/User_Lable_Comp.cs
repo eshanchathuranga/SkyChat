@@ -17,7 +17,10 @@ namespace SkyChat.Lib.Components.MainForm
 {
     public partial class User_Lable_Comp : UserControl
     {
-        private string MessagePositionPath = @"C:\Users\User\Desktop\Last_Project\SkyChat\SkyChat\Lib\Config\MessagePosition.json";
+        // Define a object og Get File Path
+        GetFilePath getFilePath;
+        // Define a MessagePosition File Path
+        private string MessagePositionPath;
         private string _authId;
         private string _userid;
         private string _username;
@@ -32,6 +35,10 @@ namespace SkyChat.Lib.Components.MainForm
         public  User_Lable_Comp(string authId, string userid, string username, string email)
         {
             InitializeComponent();
+            // Create a object og get file path
+            this.getFilePath = new GetFilePath();
+            // Get File path
+            this.MessagePositionPath = getFilePath.GetConfigFilePath("MessagePosition.json");
             databaseConnection = new DatabaseConnection();
             this.Name = userid;
             this._userid = userid;

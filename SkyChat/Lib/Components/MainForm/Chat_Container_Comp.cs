@@ -16,8 +16,10 @@ namespace SkyChat.Lib.Components.MainForm
 {
     public partial class Chat_Container_Comp : UserControl
     {
-
-        private string MessagePositionPath = @"C:\Users\User\Desktop\Last_Project\SkyChat\SkyChat\Lib\Config\MessagePosition.json";
+        // Define a object og Get File Path
+        GetFilePath getFilePath;
+        // Define a AuthConfig File Path
+        private string MessagePositionPath;
         // Create a object of Message Position
         MessagePosition messagePosition;
         private string _authId;
@@ -28,6 +30,10 @@ namespace SkyChat.Lib.Components.MainForm
         public Chat_Container_Comp(string authId, string userId)
         {
             InitializeComponent();
+            // Create a object og get file path
+            this.getFilePath = new GetFilePath();
+            // Get File path
+            this.MessagePositionPath = getFilePath.GetConfigFilePath("MessagePosition.json");
             this.Name = userId;
             this._authId = authId;
             this._userId = userId;

@@ -234,6 +234,7 @@
       <DependentUpon>User_Menu_Comp.cs</DependentUpon>
     </Compile>
     <Compile Include="Lib\Modules\DatabaseConnection.cs" />
+    <Compile Include="Lib\Modules\GetFilePath.cs" />
     <Compile Include="Lib\Modules\ServerConnection.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

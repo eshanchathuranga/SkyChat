@@ -18,10 +18,12 @@ namespace SkyChat
 {
     public partial class MainForm : Form
     {
+        // Define a object og Get File Path
+        GetFilePath getFilePath;
         // Define a AuthConfig File Path
-        private string AuthConfigPath = @"C:\\Users\\User\\Desktop\\Last_Project\\SkyChat\\SkyChat\\Lib\\Config\\AuthConfig.json";
-        private string UsersAccountsPath = @"C:\Users\User\Desktop\Last_Project\SkyChat\SkyChat\Lib\Config\UsersAccounts.json";
-        private string MessagePositionPath = @"C:\Users\User\Desktop\Last_Project\SkyChat\SkyChat\Lib\Config\MessagePosition.json";
+        private string AuthConfigPath;
+        private string UsersAccountsPath;
+        private string MessagePositionPath;
         // Create a Instens of ServerConnection
         ServerConnection ServerConnection;
         // Create a object of ResponseData
@@ -39,6 +41,13 @@ namespace SkyChat
         public MainForm()
         {
             InitializeComponent();
+            // Create a object og get file path
+            this.getFilePath = new GetFilePath();
+            // Get File path
+            this.UsersAccountsPath = getFilePath.GetConfigFilePath("UsersAccounts.json");
+            this.AuthConfigPath = getFilePath.GetConfigFilePath("AuthConfig.json");
+            this.MessagePositionPath = getFilePath.GetConfigFilePath("MessagePosition.json");
+            // Create a object of ServerConnection
             ServerConnection = new ServerConnection();
             // Read the AuthConfig file
             string json = System.IO.File.ReadAllText(AuthConfigPath);
