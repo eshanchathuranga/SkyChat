@@ -46,6 +46,7 @@ namespace SkyChat.Lib.Components.MainForm
             this.ServerConnection = new ServerConnection();
             // Create a new objet of ImgbbUpload
             this.imgbbUpload = new ImgbbUpload();
+           
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -72,6 +73,22 @@ namespace SkyChat.Lib.Components.MainForm
             lableInfoUsername.Text = this._authUsername;
             lableInfoEmail.Text = this._authEmail;
             lableInfoId.Text = this._authId;
+
+            // Update the profile picture
+            Task.Run(() =>
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    using (var webClient = new WebClient())
+                    {
+                        byte[] imageBytes = webClient.DownloadData(authConfig.picUrl);
+                        using (var ms = new MemoryStream(imageBytes))
+                        {
+                            userImage.Image = System.Drawing.Image.FromStream(ms);
+                        }
+                    }
+                });
+            });
         }
         // Back to main chat
         private void LinkButtonBack_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -216,20 +233,34 @@ namespace SkyChat.Lib.Components.MainForm
                     authConfig.picUrl = this.imgBBResponse.data.url;
                     string json = JsonConvert.SerializeObject(authConfig);
                     System.IO.File.WriteAllText(AuthConfigPath, json);
-                    // Show success message
-                    MessageBox.Show("Profile Picture updated successfully");
-                    // Update the profile picture
-                    this.Invoke((MethodInvoker)delegate
+                    // send request to server to update username
+                    string routeName = $"update?authId={this._authId}&option=picUrl";
+                    string data = $"{{\"data\": \"{authConfig.picUrl}\"}}";
+                    string responseServer = this.ServerConnection.PostDataAsync(routeName, data).Result;
+                    // convert response to json object
+                    this.responseData = JsonConvert.DeserializeObject<ResponseData>(responseServer);
+                    if (this.responseData.code)
                     {
-                        using (var webClient = new WebClient())
+                        // Update the profile picture
+                        this.Invoke((MethodInvoker)delegate
                         {
-                            byte[] imageBytes = webClient.DownloadData(authConfig.picUrl);
-                            using (var ms = new MemoryStream(imageBytes))
+                            using (var webClient = new WebClient())
                             {
-                                userImage.Image = System.Drawing.Image.FromStream(ms);
+                                byte[] imageBytes = webClient.DownloadData(authConfig.picUrl);
+                                using (var ms = new MemoryStream(imageBytes))
+                                {
+                                    userImage.Image = System.Drawing.Image.FromStream(ms);
+                                }
                             }
-                        }
-                    });
+                        });
+                        // Show success message
+                        MessageBox.Show("Username updated successfully");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update username");
+                    }
+                   
                 });
 
             }

@@ -76,7 +76,7 @@ namespace SkyChat
                         // User lable insert a panelMainUserContainer
                         panelMainUserContainer.Invoke((MethodInvoker)(() =>
                         {
-                            User_Lable_Comp user_Lable_Comp = new User_Lable_Comp(authConfig._id, responseData.userData._id, responseData.userData.username, responseData.userData.email);
+                            User_Lable_Comp user_Lable_Comp = new User_Lable_Comp(authConfig._id, responseData.userData._id, responseData.userData.username, responseData.userData.email, responseData.userData.picUrl);
                             user_Lable_Comp.Location = new Point(0, UserLocation());
                             panelMainUserContainer.Controls.Add(user_Lable_Comp);
                         }));
@@ -114,7 +114,7 @@ namespace SkyChat
                             // User lable insert a panelMainUserContainer
                             panelMainUserContainer.Invoke((MethodInvoker)(() =>
                             {
-                                User_Lable_Comp user_Lable_Comp = new User_Lable_Comp(authConfig._id, responseData.userData._id, responseData.userData.username, responseData.userData.email);
+                                User_Lable_Comp user_Lable_Comp = new User_Lable_Comp(authConfig._id, responseData.userData._id, responseData.userData.username, responseData.userData.email, responseData.userData.picUrl);
                                 user_Lable_Comp.Location = new Point(0, UserLocation());
                                 panelMainUserContainer.Controls.Add(user_Lable_Comp);
                             }));

@@ -11,6 +11,8 @@ using SkyChat.Lib.Modules;
 using Newtonsoft.Json;
 using System.IO;
 using MongoDB.Bson;
+using Guna.UI2.WinForms;
+using System.Net;
 
 
 namespace SkyChat.Lib.Components.MainForm
@@ -25,16 +27,19 @@ namespace SkyChat.Lib.Components.MainForm
         private string _userid;
         private string _username;
         private string _email;
+        private string _picUrl;
 
         private string _CollectionName;
 
         // Create a object of Message Position
         MessagePosition messagePosition;
-
+        ServerConnection ServerConnection;
         DatabaseConnection databaseConnection;
-        public  User_Lable_Comp(string authId, string userid, string username, string email)
+        public  User_Lable_Comp(string authId, string userid, string username, string email, string pictureUrl)
         {
             InitializeComponent();
+            // Create a new object of Server Connection
+            this.ServerConnection = new ServerConnection();
             // Create a object og get file path
             this.getFilePath = new GetFilePath();
             // Get File path
@@ -45,7 +50,27 @@ namespace SkyChat.Lib.Components.MainForm
             this._authId = authId;
             this._username = username;
             this._email = email;
+            this._picUrl = pictureUrl;
             lableUsername.Text = username;
+            // Update user profile picture
+
+            // Validate pictureUrl
+            if (!string.IsNullOrEmpty(pictureUrl))
+            {
+                using (var webClient = new WebClient())
+                {
+                    byte[] imageBytes = webClient.DownloadData(pictureUrl);
+                    using (var ms = new MemoryStream(imageBytes))
+                    {
+                        imgUser.Image = System.Drawing.Image.FromStream(ms);
+                    }
+                }
+            }
+            else
+            {
+                // Handle null or empty pictureUrl (e.g., set a default image)
+                return;
+            }
             // Get Conversation Collection Name
             this._CollectionName = GetMessageDatabase(this._authId, this._userid);
                 // Update the last message in last message label
@@ -95,7 +120,7 @@ namespace SkyChat.Lib.Components.MainForm
             // Set the user header
             Panel hesaderPanel = (Panel)mainForm.Controls.Find("panelUserHeader", true)[0];
             hesaderPanel.Controls.Clear();
-            User_Header_Comp user_Header_Comp = new User_Header_Comp(this._username, this._email, this._userid);
+            User_Header_Comp user_Header_Comp = new User_Header_Comp(this._username, this._email, this._userid, this._picUrl);
             user_Header_Comp.Location = new Point(0, 0);
             hesaderPanel.Controls.Add(user_Header_Comp);
 
@@ -201,6 +226,11 @@ namespace SkyChat.Lib.Components.MainForm
         public class MessagePosition
         {
             public int location { get; set; }
+        }
+
+        private void panelUserBg_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

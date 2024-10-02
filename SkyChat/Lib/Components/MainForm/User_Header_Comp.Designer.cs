@@ -44,7 +44,6 @@
             this.guna2Panel3.Controls.Add(this.guna2Button2);
             this.guna2Panel3.Controls.Add(this.lableHeaderUserName);
             this.guna2Panel3.Controls.Add(this.userImage);
-            this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel3.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(748, 57);
@@ -112,6 +111,7 @@
             this.Controls.Add(this.guna2Panel3);
             this.Name = "User_Header_Comp";
             this.Size = new System.Drawing.Size(748, 57);
+            this.Load += new System.EventHandler(this.User_Header_Comp_Load);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
             this.ResumeLayout(false);

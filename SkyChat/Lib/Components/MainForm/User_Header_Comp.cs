@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SkyChat.MainForm;
 using Newtonsoft.Json;
+using System.IO;
+using System.Net;
 
 namespace SkyChat.Lib.Components.MainForm
 {
@@ -20,10 +22,11 @@ namespace SkyChat.Lib.Components.MainForm
         GetFilePath getFilePath;
         private string _id;
         private string _username;
+        private string _picUrl;
         private string UsersAccountsPath;
         // Create a object of Users Accounts
         UsersAccount usersAccounts;
-        public User_Header_Comp(string username, string email, string id)
+        public User_Header_Comp(string username, string email, string id, string url)
         {
             InitializeComponent();
             // Create a object og get file path
@@ -38,6 +41,8 @@ namespace SkyChat.Lib.Components.MainForm
             this._id = id;
             this.Name = id;
             this._username = username;
+            this._picUrl = url;
+
         }
 
 
@@ -68,6 +73,26 @@ namespace SkyChat.Lib.Components.MainForm
             public List<string> accounts { get; set; }
         }
 
+        private void User_Header_Comp_Load(object sender, EventArgs e)
+        {
+            // Validate pictureUrl
+            if (!string.IsNullOrEmpty(this._picUrl))
+            {
+                using (var webClient = new WebClient())
+                {
+                    byte[] imageBytes = webClient.DownloadData(this._picUrl);
+                    using (var ms = new MemoryStream(imageBytes))
+                    {
+                        userImage.Image = System.Drawing.Image.FromStream(ms);
+                    }
+                }
+            }
+            else
+            {
+                // Handle null or empty pictureUrl (e.g., set a default image)
+                return;
+            }
 
+        }
     }
 }

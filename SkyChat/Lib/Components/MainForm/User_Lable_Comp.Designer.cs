@@ -46,6 +46,7 @@
             this.panelUserBg.Name = "panelUserBg";
             this.panelUserBg.Size = new System.Drawing.Size(239, 65);
             this.panelUserBg.TabIndex = 3;
+            this.panelUserBg.Paint += new System.Windows.Forms.PaintEventHandler(this.panelUserBg_Paint);
             // 
             // lableLastMsg
             // 
@@ -60,6 +61,7 @@
             // 
             // imgUser
             // 
+            this.imgUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.imgUser.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.imgUser.HoverState.ImageSize = new System.Drawing.Size(50, 50);
             this.imgUser.Image = ((System.Drawing.Image)(resources.GetObject("imgUser.Image")));
