@@ -150,21 +150,29 @@ namespace SkyChat.Lib.Components.MainForm
         // Log out Button Click Event
         private void guna2Button5_Click(object sender, EventArgs e)
         {
-            // clear the AuthConfig file
-            authConfig._id = null;
-            authConfig.username = null;
-            authConfig.password = null;
-            authConfig.email = null;
-            authConfig.picUrl = null;
-            string json = JsonConvert.SerializeObject(authConfig);
-            System.IO.File.WriteAllText(AuthConfigPath, json);
-            // Navigate to the login page
-            Form mainForm = this.FindForm();
-            SkyChat.IndexForm indexForm = new SkyChat.IndexForm();
-            mainForm.Hide();
-            indexForm.Show();
-
-
+            DialogResult result = MessageBox.Show("Are you sure you want to delete your account?", "Delete Account", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                // clear the AuthConfig file
+                authConfig._id = null;
+                authConfig.username = null;
+                authConfig.password = null;
+                authConfig.email = null;
+                authConfig.picUrl = null;
+                string json = JsonConvert.SerializeObject(authConfig);
+                System.IO.File.WriteAllText(AuthConfigPath, json);
+                // Navigate to the login page
+                this.Invoke((MethodInvoker)delegate {
+                    Form mainForm = this.FindForm();
+                    SkyChat.IndexForm indexForm = new SkyChat.IndexForm();
+                    mainForm.Hide();
+                    indexForm.Show();
+                });
+            }
+            else
+            {
+                MessageBox.Show("Failed to delete account");
+            }
         }
         // Delete Account Button Click Event
         private void guna2Button4_Click(object sender, EventArgs e)

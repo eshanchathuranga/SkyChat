@@ -167,10 +167,10 @@
     <Compile Include="IndexForm.Designer.cs">
       <DependentUpon>IndexForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Lib\Components\Edit_Setting_Comp.cs">
+    <Compile Include="Lib\Components\MainForm\Edit_Setting_Comp.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Lib\Components\Edit_Setting_Comp.Designer.cs">
+    <Compile Include="Lib\Components\MainForm\Edit_Setting_Comp.Designer.cs">
       <DependentUpon>Edit_Setting_Comp.cs</DependentUpon>
     </Compile>
     <Compile Include="Lib\Components\IndexForm\Create_Acount_Comp.cs">
@@ -247,7 +247,7 @@
     <EmbeddedResource Include="IndexForm.resx">
       <DependentUpon>IndexForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Lib\Components\Edit_Setting_Comp.resx">
+    <EmbeddedResource Include="Lib\Components\MainForm\Edit_Setting_Comp.resx">
       <DependentUpon>Edit_Setting_Comp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Lib\Components\IndexForm\Create_Acount_Comp.resx">
