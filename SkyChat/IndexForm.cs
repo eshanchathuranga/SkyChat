@@ -24,7 +24,7 @@ namespace SkyChat
         AuthConfig authConfig;
         public IndexForm()
         {                    
-             InitializeComponent();
+             //InitializeComponent();
             // Create a object og get file path
             this.getFilePath = new GetFilePath();
             // Get File path
