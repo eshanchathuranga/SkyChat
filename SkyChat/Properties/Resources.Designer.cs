@@ -73,9 +73,59 @@ namespace SkyChat.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Change_Email_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Change_Email_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Change_Password_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Change_Password_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Change_Username_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Change_Username_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Close_icon__2_ {
             get {
                 object obj = ResourceManager.GetObject("Close_icon (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Close_icon__2_1 {
+            get {
+                object obj = ResourceManager.GetObject("Close_icon (2)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Delete_Account_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Delete_Account_Icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +156,16 @@ namespace SkyChat.Properties {
         internal static System.Drawing.Bitmap Done_icon2 {
             get {
                 object obj = ResourceManager.GetObject("Done_icon2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Log_Out_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Log_Out_Icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

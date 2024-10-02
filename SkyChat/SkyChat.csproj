@@ -167,6 +167,12 @@
     <Compile Include="IndexForm.Designer.cs">
       <DependentUpon>IndexForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lib\Components\Edit_Setting_Comp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Lib\Components\Edit_Setting_Comp.Designer.cs">
+      <DependentUpon>Edit_Setting_Comp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lib\Components\IndexForm\Create_Acount_Comp.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     <EmbeddedResource Include="IndexForm.resx">
       <DependentUpon>IndexForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Lib\Components\Edit_Setting_Comp.resx">
+      <DependentUpon>Edit_Setting_Comp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Lib\Components\IndexForm\Create_Acount_Comp.resx">
       <DependentUpon>Create_Acount_Comp.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,13 +326,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Lib\Assest\Icons\Back_icon.png" />
+    <Content Include="Lib\Assest\Icons\Change_Email_Icon.png" />
+    <Content Include="Lib\Assest\Icons\Change_Password_Icon.png" />
+    <Content Include="Lib\Assest\Icons\Change_Username_Icon.png" />
     <Content Include="Lib\Assest\Icons\Close_icon %282%29.png" />
     <Content Include="Lib\Assest\Icons\Close_Icon.png" />
+    <Content Include="Lib\Assest\Icons\Delete_Account_Icon.png" />
     <Content Include="Lib\Assest\Icons\Done_icon.png" />
     <Content Include="Lib\Assest\Icons\Done_icon2.png" />
     <Content Include="Lib\Assest\Icons\Email_icon.png" />
     <Content Include="Lib\Assest\Icons\Form.ico" />
     <Content Include="Lib\Assest\Icons\Logout_icon.png" />
+    <Content Include="Lib\Assest\Icons\Log_Out_Icon.png" />
     <Content Include="Lib\Assest\Icons\Menu_icon.png" />
     <Content Include="Lib\Assest\Icons\Menu_icon2.png" />
     <Content Include="Lib\Assest\Icons\OTP_Icon.png" />

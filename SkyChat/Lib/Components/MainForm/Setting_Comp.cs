@@ -32,29 +32,12 @@ namespace SkyChat.Lib.Components.MainForm
         ResponseData responseData;
         // Crate a object of Modification type
         private string modificationType;
+        // User Control Constructor
         public Setting_Comp()
         {
             InitializeComponent();
-            // Create a object og get file path
-            this.getFilePath = new GetFilePath();
-            // Get File path
-            this.AuthConfigPath = getFilePath.GetConfigFilePath("AuthConfig.json");
-            // Read the AuthConfig file
-            string json = System.IO.File.ReadAllText(AuthConfigPath);
-            this.authConfig = JsonConvert.DeserializeObject<AuthConfig>(json);
-            this._authEmail = this.authConfig.email;
-            this._authId = this.authConfig._id;
-            this._authUsername = this.authConfig.username;
+            // Create a new objet of ServerConnection
             this.ServerConnection = new ServerConnection();
-            lableInfoEmail.Text = this._authEmail;
-            lableInfoUsername.Text = this._authUsername;
-            lableInfoId.Text = this._authId;
-            // Hide the input field and save button
-            lableHeaderEditSetting.Visible = false;
-            txtInputFeaild.Visible = false;
-            btnSave.Visible = false;
-
-
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -64,81 +47,23 @@ namespace SkyChat.Lib.Components.MainForm
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            string inputValue = txtInputFeaild.Text.ToString();
-            Task.Run(() =>
-            {
-                if (this.modificationType == "username")
-                {
-                    string rout = $"update?authId={this.authConfig._id}";
-                    string data = $@"{{""path"": ""username"", ""data"": ""{inputValue}""}}";
-                    string response = ServerConnection.PostDataAsync(rout, data).Result;
-                    responseData = JsonConvert.DeserializeObject<ResponseData>(response);
-                    if (responseData.code)
-                    {
-                        this.Invoke((MethodInvoker)delegate {
-                            lableInfoUsername.Text = inputValue;
-                            this.authConfig.username = inputValue;
-                            string updateData = JsonConvert.SerializeObject(authConfig);
-                            File.WriteAllText(AuthConfigPath, updateData);
-                            lableHeaderEditSetting.Visible = false;
-                            txtInputFeaild.Visible = false;
-                            btnSave.Visible = false;
-                        });
-                    }
-                    else
-                    {
-                        MessageBox.Show(responseData.message);
-                    }
-                }
-                if (this.modificationType == "email")
-                {
-                    string rout = $"update?authId={this.authConfig._id}";
-                    string data = $@"{{""path"": ""email"", ""data"": ""{inputValue}""}}";
-                    string response = ServerConnection.PostDataAsync(rout, data).Result;
-                    responseData = JsonConvert.DeserializeObject<ResponseData>(response);
-                    if (responseData.code)
-                    {
-                        this.Invoke((MethodInvoker)delegate {
-                            lableInfoEmail.Text = inputValue;
-                            this.authConfig.email = inputValue;
-                            string updateData = JsonConvert.SerializeObject(authConfig);
-                            File.WriteAllText(AuthConfigPath, updateData);
-                            lableHeaderEditSetting.Visible = false;
-                            txtInputFeaild.Visible = false;
-                            btnSave.Visible = false;
-                        });
-                    }
-                    else
-                    {
-                        MessageBox.Show(responseData.message);
-                    }
-                }
-                if (this.modificationType == "password")
-                {
-                    string rout = $"update?authId={this.authConfig._id}";
-                    string data = $@"{{""path"": ""password"", ""data"": ""{inputValue}""}}";
-                    string response = ServerConnection.PostDataAsync(rout, data).Result;
-                    responseData = JsonConvert.DeserializeObject<ResponseData>(response);
-                    if (responseData.code)
-                    {
-                        this.Invoke((MethodInvoker)delegate {
-                            lableHeaderEditSetting.Visible = false;
-                            txtInputFeaild.Visible = false;
-                            btnSave.Visible = false;
-                        });
-                    }
-                    else
-                    {
-                        MessageBox.Show(responseData.message);
-                    }
-                }
-            });
-        }
 
+        }
+        // Form Load Event
         private void Setting_Comp_Load(object sender, EventArgs e)
         {
-            
-
+            // Get the AuthConfig file path
+            this.getFilePath = new GetFilePath();
+            this.AuthConfigPath = getFilePath.GetConfigFilePath("AuthConfig.json");
+            // Read the AuthConfig file
+            string json = System.IO.File.ReadAllText(AuthConfigPath);
+            authConfig = JsonConvert.DeserializeObject<AuthConfig>(json);
+            this._authId = authConfig._id;
+            this._authUsername = authConfig.username;
+            this._authEmail = authConfig.email;
+            lableInfoUsername.Text = this._authUsername;
+            lableInfoEmail.Text = this._authEmail;
+            lableInfoId.Text = this._authId;
         }
 
         // Back to main chat
@@ -180,51 +105,108 @@ namespace SkyChat.Lib.Components.MainForm
 
         private void linkButtonChangeUsername_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            lableHeaderEditSetting.Visible = true;
-            txtInputFeaild.Visible = true;
-            btnSave.Visible = true;
-            txtInputFeaild.Clear();
-            lableHeaderEditSetting.Text = "Change Username";
-            txtInputFeaild.PlaceholderText = "Enter New Username";
-            this.modificationType = "username";
+
         }
 
         private void linkButtonChangeEmail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            lableHeaderEditSetting.Visible = true;
-            txtInputFeaild.Visible = true;
-            btnSave.Visible = true;
-            txtInputFeaild.Clear();
-            lableHeaderEditSetting.Text = "Change Email";
-            txtInputFeaild.PlaceholderText = "Enter New Email";
-            this.modificationType = "email";
+
         }
 
         private void linkButtonChangePassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            lableHeaderEditSetting.Visible = true;
-            txtInputFeaild.Visible = true;
-            btnSave.Visible = true;
-            txtInputFeaild.Clear();
-            lableHeaderEditSetting.Text = "Change  Password";
-            txtInputFeaild.PlaceholderText = "Enter New Password";
-            this.modificationType = "password";
+
         }
 
         private void linkButtonLogOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Remove Config Data
+
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            Edit_Setting_Comp edit_Setting_Comp = new Edit_Setting_Comp(this._authId, "Change Username", "username");
+            edit_Setting_Comp.Location = new Point(0,0);
+            this.Controls.Clear();
+            this.Controls.Add(edit_Setting_Comp);
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            Edit_Setting_Comp edit_Setting_Comp = new Edit_Setting_Comp(this._authId, "Change Email", "email");
+            edit_Setting_Comp.Location = new Point(0, 0);
+            this.Controls.Clear();
+            this.Controls.Add(edit_Setting_Comp);
+
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            Edit_Setting_Comp edit_Setting_Comp = new Edit_Setting_Comp(this._authId, "Change Password", "password");
+            edit_Setting_Comp.Location = new Point(0, 0);
+            this.Controls.Clear();
+            this.Controls.Add(edit_Setting_Comp);
+        }
+        // Log out Button Click Event
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            // clear the AuthConfig file
             authConfig._id = null;
-            authConfig.email = null;
-            authConfig.password = null;
             authConfig.username = null;
+            authConfig.password = null;
+            authConfig.email = null;
             authConfig.picUrl = null;
-            string removeData = JsonConvert.SerializeObject(authConfig);
-            File.WriteAllText(AuthConfigPath, removeData);
+            string json = JsonConvert.SerializeObject(authConfig);
+            System.IO.File.WriteAllText(AuthConfigPath, json);
+            // Navigate to the login page
             Form mainForm = this.FindForm();
             SkyChat.IndexForm indexForm = new SkyChat.IndexForm();
-            indexForm.Show();
             mainForm.Hide();
+            indexForm.Show();
+
+
+        }
+        // Delete Account Button Click Event
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete your account?", "Delete Account", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                Task.Run(() =>
+                {
+                    // send request to server to delete account
+                    string routeName = $"delete?authId={this._authId}";
+                    string response = this.ServerConnection.PostDataAsync(routeName, "").Result;
+                    // convert response to json object
+                    this.responseData = JsonConvert.DeserializeObject<ResponseData>(response);
+                    if (this.responseData.code)
+                    {
+                        // clear the AuthConfig file
+                        authConfig._id = null;
+                        authConfig.username = null;
+                        authConfig.password = null;
+                        authConfig.email = null;
+                        authConfig.picUrl = null;
+                        string json = JsonConvert.SerializeObject(authConfig);
+                        System.IO.File.WriteAllText(AuthConfigPath, json);
+                        // Navigate to the login page
+                        this.Invoke((MethodInvoker)delegate {
+                            Form mainForm = this.FindForm();
+                            SkyChat.IndexForm indexForm = new SkyChat.IndexForm();
+                            mainForm.Hide();
+                            indexForm.Show();
+                        });
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete account");
+                    }
+                });
+            }
+            if (result == DialogResult.No)
+            {
+                return;
+            }
         }
     }
 }

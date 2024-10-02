@@ -65,6 +65,7 @@ namespace SkyChat
                 {
                     foreach (string account in usersAccounts.accounts)
                     {
+
                         string jsonAccounts = System.IO.File.ReadAllText(UsersAccountsPath);
                         usersAccounts = JsonConvert.DeserializeObject<UsersAccount>(jsonAccounts);
                         string request = $"get?userId={account}";
