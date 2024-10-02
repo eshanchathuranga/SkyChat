@@ -158,6 +158,7 @@
             this.userImage.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.userImage.Size = new System.Drawing.Size(167, 156);
             this.userImage.TabIndex = 10;
+            this.userImage.Click += new System.EventHandler(this.userImage_Click);
             // 
             // guna2Panel1
             // 

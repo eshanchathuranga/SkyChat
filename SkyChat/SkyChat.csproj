@@ -235,6 +235,7 @@
     </Compile>
     <Compile Include="Lib\Modules\DatabaseConnection.cs" />
     <Compile Include="Lib\Modules\GetFilePath.cs" />
+    <Compile Include="Lib\Modules\ImgbbUpload.cs" />
     <Compile Include="Lib\Modules\ServerConnection.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -342,6 +343,7 @@
     <Content Include="Lib\Assest\Icons\Upload_icon.png" />
     <Content Include="Lib\Assest\Icons\User_icon.png" />
     <Content Include="mongocrypt.dll" />
+    <Content Include="ToDo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MongoDB.Libmongocrypt.1.12.0\build\MongoDB.Libmongocrypt.targets" Condition="Exists('..\packages\MongoDB.Libmongocrypt.1.12.0\build\MongoDB.Libmongocrypt.targets')" />

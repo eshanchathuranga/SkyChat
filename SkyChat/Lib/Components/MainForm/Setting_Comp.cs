@@ -11,6 +11,8 @@ using Newtonsoft.Json;
 using SkyChat.Lib.Modules;
 using System.IO;
 using static SkyChat.IndexForm;
+using Guna.UI2.WinForms;
+using System.Net;
 
 namespace SkyChat.Lib.Components.MainForm
 {
@@ -18,18 +20,22 @@ namespace SkyChat.Lib.Components.MainForm
     {
         // Define a object og Get File Path
         GetFilePath getFilePath;
-        // Define a AuthConfig File Path
-        private string AuthConfigPath;
+        // Crate a object of ResponseData
+        ResponseData responseData;
         // Create a object of AuthConfig
         AuthConfig authConfig;
         // Create a object of ServerConnection
         ServerConnection ServerConnection;
+        // Create a object of ImgbbUpload
+        ImgbbUpload imgbbUpload;
+        // Create a object of Imagbb data
+        ImgBBResponse imgBBResponse;
+        // Define a AuthConfig File Path
+        private string AuthConfigPath;
         // Create a object of Auth
         private string _authId;
         private string _authUsername;
         private string _authEmail;
-        // Crate a object of ResponseData
-        ResponseData responseData;
         // Crate a object of Modification type
         private string modificationType;
         // User Control Constructor
@@ -38,6 +44,8 @@ namespace SkyChat.Lib.Components.MainForm
             InitializeComponent();
             // Create a new objet of ServerConnection
             this.ServerConnection = new ServerConnection();
+            // Create a new objet of ImgbbUpload
+            this.imgbbUpload = new ImgbbUpload();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -65,7 +73,6 @@ namespace SkyChat.Lib.Components.MainForm
             lableInfoEmail.Text = this._authEmail;
             lableInfoId.Text = this._authId;
         }
-
         // Back to main chat
         private void LinkButtonBack_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -75,34 +82,6 @@ namespace SkyChat.Lib.Components.MainForm
             panelMainContainer.Controls.Remove(this);
             panelSendMessage.Visible = true;
         }
-
-        // Create a clsas to store the auth config data
-        public class AuthConfig
-        {
-            public string _id { get; set; }
-            public string username { get; set; }
-            public string email { get; set; }
-            public string password { get; set; }
-            public string picUrl { get; set; }
-        }
-        // Create a class to store the response data
-        public class ResponseData
-        {
-            public string message { get; set; }
-            public UserData userData { get; set; }
-            public bool code { get; set; }
-            public string status { get; set; }
-        }
-        // Create a class to store the user data
-        public class UserData
-        {
-            public string _id { get; set; }
-            public string username { get; set; }
-            public string email { get; set; }
-            public string password { get; set; }
-            public string picUrl { get; set; }
-        }
-
         private void linkButtonChangeUsername_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
@@ -215,6 +194,83 @@ namespace SkyChat.Lib.Components.MainForm
             {
                 return;
             }
+        }
+        // Profile Picture Click Event
+        private void userImage_Click(object sender, EventArgs e)
+        {
+            string profilepicPath;
+            // Open the file dialog
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                profilepicPath = openFileDialog.FileName;
+                // Upload the Image to Imdgbb.com
+                Task.Run(() =>
+                {
+                    // Upload the image to imgbb.com
+                    string response = this.imgbbUpload.UploadImage(this._authId, profilepicPath).Result;
+                    // Convert the response to json object
+                    this.imgBBResponse = JsonConvert.DeserializeObject<ImgBBResponse>(response);
+                    // Update the AuthConfig file
+                    authConfig.picUrl = this.imgBBResponse.data.url;
+                    string json = JsonConvert.SerializeObject(authConfig);
+                    System.IO.File.WriteAllText(AuthConfigPath, json);
+                    // Show success message
+                    MessageBox.Show("Profile Picture updated successfully");
+                    // Update the profile picture
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        using (var webClient = new WebClient())
+                        {
+                            byte[] imageBytes = webClient.DownloadData(authConfig.picUrl);
+                            using (var ms = new MemoryStream(imageBytes))
+                            {
+                                userImage.Image = System.Drawing.Image.FromStream(ms);
+                            }
+                        }
+                    });
+                });
+
+            }
+
+        }
+
+        // Create a clsas to store the auth config data
+        public class AuthConfig
+        {
+            public string _id { get; set; }
+            public string username { get; set; }
+            public string email { get; set; }
+            public string password { get; set; }
+            public string picUrl { get; set; }
+        }
+        // Create a class to store the response data
+        public class ResponseData
+        {
+            public string message { get; set; }
+            public UserData userData { get; set; }
+            public bool code { get; set; }
+            public string status { get; set; }
+        }
+        // Create a class to store the user data
+        public class UserData
+        {
+            public string _id { get; set; }
+            public string username { get; set; }
+            public string email { get; set; }
+            public string password { get; set; }
+            public string picUrl { get; set; }
+        }
+        // Create a class to store the Imgbbresponse data
+        public class ImgBBResponse
+        {
+            public Data data { get; set; }
+        }
+        // Create a class to store the Imgbb data
+        public class Data
+        {
+            public string url { get; set; }
         }
     }
 }
