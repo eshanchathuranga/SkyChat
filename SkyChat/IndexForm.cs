@@ -32,10 +32,6 @@ namespace SkyChat
                 mainForm.Show();
                 Task.Run(() =>
                 {
-                    if (!this.IsHandleCreated)
-                    {
-                        this.CreateHandle();
-                    }
                     this.Invoke((MethodInvoker)delegate
                     {
                         this.Hide();

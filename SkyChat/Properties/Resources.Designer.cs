@@ -133,6 +133,16 @@ namespace SkyChat.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Delete_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Delete_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Done_icon {
             get {
                 object obj = ResourceManager.GetObject("Done_icon", resourceCulture);

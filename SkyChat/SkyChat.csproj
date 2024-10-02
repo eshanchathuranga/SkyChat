@@ -233,12 +233,6 @@
     <Compile Include="Lib\Components\MainForm\User_Lable_Comp.Designer.cs">
       <DependentUpon>User_Lable_Comp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Lib\Components\MainForm\User_Menu_Comp.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Lib\Components\MainForm\User_Menu_Comp.Designer.cs">
-      <DependentUpon>User_Menu_Comp.cs</DependentUpon>
-    </Compile>
     <Compile Include="Lib\Modules\DatabaseConnection.cs" />
     <Compile Include="Lib\Modules\GetFilePath.cs" />
     <Compile Include="Lib\Modules\ServerConnection.cs" />
@@ -286,9 +280,6 @@
     <EmbeddedResource Include="Lib\Components\MainForm\User_Lable_Comp.resx">
       <DependentUpon>User_Lable_Comp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Lib\Components\MainForm\User_Menu_Comp.resx">
-      <DependentUpon>User_Menu_Comp.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -332,6 +323,7 @@
     <Content Include="Lib\Assest\Icons\Close_icon %282%29.png" />
     <Content Include="Lib\Assest\Icons\Close_Icon.png" />
     <Content Include="Lib\Assest\Icons\Delete_Account_Icon.png" />
+    <Content Include="Lib\Assest\Icons\Delete_Icon.png" />
     <Content Include="Lib\Assest\Icons\Done_icon.png" />
     <Content Include="Lib\Assest\Icons\Done_icon2.png" />
     <Content Include="Lib\Assest\Icons\Email_icon.png" />
