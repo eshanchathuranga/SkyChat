@@ -70,7 +70,7 @@
             // 
             // panelIndexContainer
             // 
-            this.panelIndexContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelIndexContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelIndexContainer.Location = new System.Drawing.Point(289, 27);
             this.panelIndexContainer.Name = "panelIndexContainer";
             this.panelIndexContainer.Padding = new System.Windows.Forms.Padding(30, 0, 30, 30);
@@ -95,13 +95,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 411);
-            this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panelIndexContainer);
+            this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "IndexForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IndexForm";
+            this.Load += new System.EventHandler(this.IndexForm_Load_1);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
