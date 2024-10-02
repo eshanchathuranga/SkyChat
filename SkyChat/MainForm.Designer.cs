@@ -32,25 +32,29 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.panelMainUserContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
             this.txtSearchInput = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnAcountSettings = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panalMessageSend = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnMessageSend = new Guna.UI2.WinForms.Guna2Button();
             this.txtMessageInput = new Guna.UI2.WinForms.Guna2TextBox();
             this.panelUserHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.panelChatMainContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.lableSelectChat = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.btnMessageSend = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAcountSettings = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.buttonrefreshUser = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonDeleteUser = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.panalMessageSend.SuspendLayout();
             this.panelChatMainContainer.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
+            this.guna2Panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -84,6 +88,27 @@
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(239, 53);
             this.guna2Panel4.TabIndex = 1;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.AutoRoundedCorners = true;
+            this.btnSearch.BorderRadius = 11;
+            this.btnSearch.CustomizableEdges.BottomLeft = false;
+            this.btnSearch.CustomizableEdges.TopLeft = false;
+            this.btnSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(217)))), ((int)(((byte)(234)))));
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Image = global::SkyChat.Properties.Resources.Srearch_icon2;
+            this.btnSearch.Location = new System.Drawing.Point(197, 12);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(30, 25);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearchInput
             // 
@@ -120,6 +145,28 @@
             this.guna2Panel2.Size = new System.Drawing.Size(239, 57);
             this.guna2Panel2.TabIndex = 0;
             // 
+            // btnAcountSettings
+            // 
+            this.btnAcountSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnAcountSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAcountSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAcountSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAcountSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAcountSettings.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAcountSettings.FillColor = System.Drawing.Color.Transparent;
+            this.btnAcountSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAcountSettings.ForeColor = System.Drawing.Color.White;
+            this.btnAcountSettings.Image = global::SkyChat.Properties.Resources.Menu_icon;
+            this.btnAcountSettings.ImageSize = new System.Drawing.Size(40, 50);
+            this.btnAcountSettings.Location = new System.Drawing.Point(185, 0);
+            this.btnAcountSettings.Name = "btnAcountSettings";
+            this.btnAcountSettings.PressedColor = System.Drawing.Color.Transparent;
+            this.btnAcountSettings.PressedDepth = 0;
+            this.btnAcountSettings.Size = new System.Drawing.Size(54, 57);
+            this.btnAcountSettings.TabIndex = 1;
+            this.btnAcountSettings.UseTransparentBackground = true;
+            this.btnAcountSettings.Click += new System.EventHandler(this.btnAcountSettings_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -140,6 +187,27 @@
             this.panalMessageSend.Name = "panalMessageSend";
             this.panalMessageSend.Size = new System.Drawing.Size(794, 57);
             this.panalMessageSend.TabIndex = 5;
+            // 
+            // btnMessageSend
+            // 
+            this.btnMessageSend.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMessageSend.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMessageSend.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMessageSend.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMessageSend.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMessageSend.FillColor = System.Drawing.Color.Transparent;
+            this.btnMessageSend.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMessageSend.ForeColor = System.Drawing.Color.White;
+            this.btnMessageSend.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.btnMessageSend.Image = global::SkyChat.Properties.Resources.Send_Icon;
+            this.btnMessageSend.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnMessageSend.Location = new System.Drawing.Point(739, 0);
+            this.btnMessageSend.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMessageSend.Name = "btnMessageSend";
+            this.btnMessageSend.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(217)))), ((int)(((byte)(234)))));
+            this.btnMessageSend.Size = new System.Drawing.Size(55, 57);
+            this.btnMessageSend.TabIndex = 1;
+            this.btnMessageSend.Click += new System.EventHandler(this.btnMessageSend_Click);
             // 
             // txtMessageInput
             // 
@@ -183,6 +251,7 @@
             // panelChatMainContainer
             // 
             this.panelChatMainContainer.AutoScroll = true;
+            this.panelChatMainContainer.Controls.Add(this.guna2Panel5);
             this.panelChatMainContainer.Controls.Add(this.lableSelectChat);
             this.panelChatMainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChatMainContainer.Location = new System.Drawing.Point(239, 57);
@@ -231,69 +300,55 @@
             this.guna2Button1.TabIndex = 7;
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // btnMessageSend
+            // guna2Panel5
             // 
-            this.btnMessageSend.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMessageSend.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMessageSend.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMessageSend.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMessageSend.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMessageSend.FillColor = System.Drawing.Color.Transparent;
-            this.btnMessageSend.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMessageSend.ForeColor = System.Drawing.Color.White;
-            this.btnMessageSend.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.btnMessageSend.Image = global::SkyChat.Properties.Resources.Send_Icon;
-            this.btnMessageSend.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnMessageSend.Location = new System.Drawing.Point(739, 0);
-            this.btnMessageSend.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMessageSend.Name = "btnMessageSend";
-            this.btnMessageSend.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(217)))), ((int)(((byte)(234)))));
-            this.btnMessageSend.Size = new System.Drawing.Size(55, 57);
-            this.btnMessageSend.TabIndex = 1;
-            this.btnMessageSend.Click += new System.EventHandler(this.btnMessageSend_Click);
+            this.guna2Panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
+            this.guna2Panel5.Controls.Add(this.buttonDeleteUser);
+            this.guna2Panel5.Controls.Add(this.buttonrefreshUser);
+            this.guna2Panel5.Location = new System.Drawing.Point(103, 99);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.Size = new System.Drawing.Size(146, 112);
+            this.guna2Panel5.TabIndex = 1;
             // 
-            // btnSearch
+            // buttonrefreshUser
             // 
-            this.btnSearch.AutoRoundedCorners = true;
-            this.btnSearch.BorderRadius = 11;
-            this.btnSearch.CustomizableEdges.BottomLeft = false;
-            this.btnSearch.CustomizableEdges.TopLeft = false;
-            this.btnSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(217)))), ((int)(((byte)(234)))));
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Image = global::SkyChat.Properties.Resources.Srearch_icon2;
-            this.btnSearch.Location = new System.Drawing.Point(197, 12);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(30, 25);
-            this.btnSearch.TabIndex = 2;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.buttonrefreshUser.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(216)))), ((int)(((byte)(203)))));
+            this.buttonrefreshUser.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.buttonrefreshUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonrefreshUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.buttonrefreshUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.buttonrefreshUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.buttonrefreshUser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonrefreshUser.FillColor = System.Drawing.Color.Transparent;
+            this.buttonrefreshUser.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonrefreshUser.ForeColor = System.Drawing.Color.White;
+            this.buttonrefreshUser.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
+            this.buttonrefreshUser.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(216)))), ((int)(((byte)(203)))));
+            this.buttonrefreshUser.Location = new System.Drawing.Point(0, 0);
+            this.buttonrefreshUser.Name = "buttonrefreshUser";
+            this.buttonrefreshUser.Size = new System.Drawing.Size(146, 53);
+            this.buttonrefreshUser.TabIndex = 0;
+            this.buttonrefreshUser.Text = "Refresh";
             // 
-            // btnAcountSettings
+            // buttonDeleteUser
             // 
-            this.btnAcountSettings.BackColor = System.Drawing.Color.Transparent;
-            this.btnAcountSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAcountSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAcountSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAcountSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAcountSettings.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAcountSettings.FillColor = System.Drawing.Color.Transparent;
-            this.btnAcountSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAcountSettings.ForeColor = System.Drawing.Color.White;
-            this.btnAcountSettings.Image = global::SkyChat.Properties.Resources.Menu_icon;
-            this.btnAcountSettings.ImageSize = new System.Drawing.Size(40, 50);
-            this.btnAcountSettings.Location = new System.Drawing.Point(185, 0);
-            this.btnAcountSettings.Name = "btnAcountSettings";
-            this.btnAcountSettings.PressedColor = System.Drawing.Color.Transparent;
-            this.btnAcountSettings.PressedDepth = 0;
-            this.btnAcountSettings.Size = new System.Drawing.Size(54, 57);
-            this.btnAcountSettings.TabIndex = 1;
-            this.btnAcountSettings.UseTransparentBackground = true;
-            this.btnAcountSettings.Click += new System.EventHandler(this.btnAcountSettings_Click);
+            this.buttonDeleteUser.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(216)))), ((int)(((byte)(203)))));
+            this.buttonDeleteUser.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.buttonDeleteUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonDeleteUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.buttonDeleteUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.buttonDeleteUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.buttonDeleteUser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonDeleteUser.FillColor = System.Drawing.Color.Transparent;
+            this.buttonDeleteUser.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDeleteUser.ForeColor = System.Drawing.Color.White;
+            this.buttonDeleteUser.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
+            this.buttonDeleteUser.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(216)))), ((int)(((byte)(203)))));
+            this.buttonDeleteUser.Location = new System.Drawing.Point(0, 53);
+            this.buttonDeleteUser.Name = "buttonDeleteUser";
+            this.buttonDeleteUser.Size = new System.Drawing.Size(146, 53);
+            this.buttonDeleteUser.TabIndex = 1;
+            this.buttonDeleteUser.Text = "Delete";
             // 
             // MainForm
             // 
@@ -319,6 +374,7 @@
             this.panelChatMainContainer.ResumeLayout(false);
             this.panelChatMainContainer.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
+            this.guna2Panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -341,5 +397,8 @@
         private System.Windows.Forms.Label lableSelectChat;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
+        private Guna.UI2.WinForms.Guna2Button buttonrefreshUser;
+        private Guna.UI2.WinForms.Guna2Button buttonDeleteUser;
     }
 }
