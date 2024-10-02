@@ -23,17 +23,15 @@ namespace SkyChat
         // Create a object of AuthConfig
         AuthConfig authConfig;
         public IndexForm()
-        {
-            
-            // Read the AuthConfig file
-            string json = System.IO.File.ReadAllText(AuthConfigPath);
-            authConfig = JsonConvert.DeserializeObject<AuthConfig>(json);
-
-                InitializeComponent();
+        {                    
+             InitializeComponent();
             // Create a object og get file path
             this.getFilePath = new GetFilePath();
             // Get File path
             this.AuthConfigPath = getFilePath.GetConfigFilePath("AuthConfig.json");
+            // Read the AuthConfig file
+            string json = System.IO.File.ReadAllText(AuthConfigPath);
+            authConfig = JsonConvert.DeserializeObject<AuthConfig>(json);
             // Check already login or not
             if (authConfig._id != null)
             {
