@@ -59,18 +59,17 @@
             // lableMsg
             // 
             this.lableMsg.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lableMsg.AutoSize = true;
             this.lableMsg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lableMsg.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lableMsg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(89)))));
             this.lableMsg.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lableMsg.Location = new System.Drawing.Point(657, 5);
+            this.lableMsg.Location = new System.Drawing.Point(3, 5);
             this.lableMsg.Name = "lableMsg";
             this.lableMsg.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lableMsg.Size = new System.Drawing.Size(60, 23);
+            this.lableMsg.Size = new System.Drawing.Size(714, 23);
             this.lableMsg.TabIndex = 0;
             this.lableMsg.Text = "hellow ";
-            this.lableMsg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lableMsg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Outgoin_Message_Comp
             // 

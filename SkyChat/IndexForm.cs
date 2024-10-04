@@ -36,21 +36,23 @@ namespace SkyChat
             if (authConfig._id != null)
             {
                 MainForm mainForm = new MainForm();
-                mainForm.Show();
-                Task.Run(() =>
-                {
-                    if (this.InvokeRequired)
-                    {
-                        this.BeginInvoke((MethodInvoker)delegate
-                        {
-                            this.Hide();
-                        });
-                    }
-                    else
-                    {
-                        this.Hide();
-                    }
-                });
+                //mainForm.Show();
+                //Task.Run(() =>
+                //{
+                //    if (this.InvokeRequired)
+                //    {
+                //        this.BeginInvoke((MethodInvoker)delegate
+                //        {
+                //            this.Hide();
+                //        });
+                //    }
+                //    else
+                //    {
+                //        this.Hide();
+                //    }
+                //});
+                Application.Run(mainForm);
+                this.Close();
             }
             else
             {

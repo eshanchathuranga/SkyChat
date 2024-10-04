@@ -15,6 +15,7 @@
 
 
 // Create a new function to update users profile pictures -- DONE
-// Create a new function to upload, delete and change auth profile picture
+// Create a new function to upload, delete and change auth profile picture -- DONE
 
 --------------------------------------------------------------------------------
+
