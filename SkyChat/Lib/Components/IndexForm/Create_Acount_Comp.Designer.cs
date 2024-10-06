@@ -144,6 +144,7 @@
             this.txtPasswordInputCreate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(146)))), ((int)(((byte)(209)))));
             this.txtPasswordInputCreate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPasswordInputCreate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(146)))), ((int)(((byte)(209)))));
+            this.txtPasswordInputCreate.IconLeft = global::SkyChat.Properties.Resources.Password_icon;
             this.txtPasswordInputCreate.IconLeftSize = new System.Drawing.Size(30, 30);
             this.txtPasswordInputCreate.Location = new System.Drawing.Point(38, 227);
             this.txtPasswordInputCreate.Name = "txtPasswordInputCreate";
@@ -169,6 +170,7 @@
             this.txtUsernameInputCreate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(146)))), ((int)(((byte)(209)))));
             this.txtUsernameInputCreate.Font = new System.Drawing.Font("SimSun", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsernameInputCreate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(146)))), ((int)(((byte)(209)))));
+            this.txtUsernameInputCreate.IconLeft = global::SkyChat.Properties.Resources.User_icon1;
             this.txtUsernameInputCreate.IconLeftSize = new System.Drawing.Size(30, 30);
             this.txtUsernameInputCreate.Location = new System.Drawing.Point(38, 75);
             this.txtUsernameInputCreate.Margin = new System.Windows.Forms.Padding(3, 42, 3, 42);
@@ -196,6 +198,7 @@
             this.txtEmailInputCreate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmailInputCreate.ForeColor = System.Drawing.Color.DimGray;
             this.txtEmailInputCreate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(146)))), ((int)(((byte)(209)))));
+            this.txtEmailInputCreate.IconLeft = global::SkyChat.Properties.Resources.Email_icon;
             this.txtEmailInputCreate.IconLeftSize = new System.Drawing.Size(30, 30);
             this.txtEmailInputCreate.Location = new System.Drawing.Point(38, 147);
             this.txtEmailInputCreate.Margin = new System.Windows.Forms.Padding(0, 52, 0, 52);

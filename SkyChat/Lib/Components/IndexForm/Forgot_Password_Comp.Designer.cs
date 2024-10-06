@@ -96,6 +96,7 @@
             this.txtEmailForgotInput.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(146)))), ((int)(((byte)(209)))));
             this.txtEmailForgotInput.Font = new System.Drawing.Font("SimSun", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmailForgotInput.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(146)))), ((int)(((byte)(209)))));
+            this.txtEmailForgotInput.IconLeft = global::SkyChat.Properties.Resources.Email_icon1;
             this.txtEmailForgotInput.IconLeftSize = new System.Drawing.Size(30, 30);
             this.txtEmailForgotInput.Location = new System.Drawing.Point(47, 130);
             this.txtEmailForgotInput.Margin = new System.Windows.Forms.Padding(3, 42, 3, 42);

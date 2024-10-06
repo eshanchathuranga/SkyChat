@@ -100,6 +100,7 @@
             this.txtOtpInput.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(146)))), ((int)(((byte)(209)))));
             this.txtOtpInput.Font = new System.Drawing.Font("SimSun", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOtpInput.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(146)))), ((int)(((byte)(209)))));
+            this.txtOtpInput.IconLeft = global::SkyChat.Properties.Resources.OTP_Icon;
             this.txtOtpInput.IconLeftSize = new System.Drawing.Size(30, 30);
             this.txtOtpInput.Location = new System.Drawing.Point(48, 128);
             this.txtOtpInput.Margin = new System.Windows.Forms.Padding(3, 42, 3, 42);
