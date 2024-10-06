@@ -55,14 +55,22 @@ namespace SkyChat.Lib.Components.MainForm
             // Update user profile picture
 
             // Validate pictureUrl
-            if (!string.IsNullOrEmpty(pictureUrl))
+            if (pictureUrl != null)
             {
                 using (var webClient = new WebClient())
                 {
-                    byte[] imageBytes = webClient.DownloadData(pictureUrl);
-                    using (var ms = new MemoryStream(imageBytes))
+                    try
                     {
-                        imgUser.Image = System.Drawing.Image.FromStream(ms);
+                        byte[] imageBytes = webClient.DownloadData(pictureUrl);
+                        using (var ms = new MemoryStream(imageBytes))
+                        {
+                            imgUser.Image = System.Drawing.Image.FromStream(ms);
+                        }
+                    }
+                    catch (WebException ex)
+                    {
+                        // Handle the 404 error or other web exceptions
+                        MessageBox.Show("Error loading image: " + ex.Message);
                     }
                 }
             }

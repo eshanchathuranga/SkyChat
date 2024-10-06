@@ -16,7 +16,15 @@ namespace SkyChat
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new IndexForm());
+            IndexForm indexForm = new IndexForm();
+            if (indexForm.IsDisposed)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                Application.Run(indexForm);
+            }
         }
     }
 }
