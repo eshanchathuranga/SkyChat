@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IndexForm));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.panelIndexContainer = new System.Windows.Forms.Panel();
             this.btnIndexClose = new Guna.UI2.WinForms.Guna2Button();
+            this.panelIndexContainer = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -47,16 +47,6 @@
             this.guna2Panel1.Size = new System.Drawing.Size(387, 27);
             this.guna2Panel1.TabIndex = 10;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
-            // 
-            // panelIndexContainer
-            // 
-            this.panelIndexContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelIndexContainer.Location = new System.Drawing.Point(289, 27);
-            this.panelIndexContainer.Name = "panelIndexContainer";
-            this.panelIndexContainer.Padding = new System.Windows.Forms.Padding(30, 0, 30, 30);
-            this.panelIndexContainer.Size = new System.Drawing.Size(387, 384);
-            this.panelIndexContainer.TabIndex = 9;
-            this.panelIndexContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelIndexContainer_Paint);
             // 
             // btnIndexClose
             // 
@@ -78,9 +68,19 @@
             this.btnIndexClose.TabIndex = 0;
             this.btnIndexClose.Click += new System.EventHandler(this.btnIndexClose_Click);
             // 
+            // panelIndexContainer
+            // 
+            this.panelIndexContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelIndexContainer.Location = new System.Drawing.Point(289, 27);
+            this.panelIndexContainer.Name = "panelIndexContainer";
+            this.panelIndexContainer.Padding = new System.Windows.Forms.Padding(30, 0, 30, 30);
+            this.panelIndexContainer.Size = new System.Drawing.Size(387, 384);
+            this.panelIndexContainer.TabIndex = 9;
+            this.panelIndexContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelIndexContainer_Paint);
+            // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImage = global::SkyChat.Properties.Resources.IndexForm_bg;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);

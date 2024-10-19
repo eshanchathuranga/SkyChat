@@ -34,7 +34,7 @@ namespace SkyChat
         UsersAccount usersAccounts;
         // Create a object of Message Position
         MessagePosition messagePosition;
-        // Create a Constuctor of User Label Comp Position
+        // Create a Constructor of User Label Comp Position
         public int countLocationUser { get; set; }
 
         // main  event
@@ -198,7 +198,7 @@ namespace SkyChat
                         MessageResponse messageResponse = JsonConvert.DeserializeObject<MessageResponse>(response);
                         if (messageResponse.code)
                         {
-                            // Message lable insert a panelChatMainContainer
+                            // Message label insert a panelChatMainContainer
                             panelChatMainContainer.Invoke((MethodInvoker)(() =>
                             {
                                 Outgoin_Message_Comp outgoing_Message_Comp = new Outgoin_Message_Comp(messageInput, time);
@@ -249,7 +249,7 @@ namespace SkyChat
             panalMessageSend.Visible = false;
             panelUserHeader.Controls.Clear();
         }
-        // null
+        // No action in this event
         private void guna2Button3_Click(object sender, EventArgs e)
         {
 

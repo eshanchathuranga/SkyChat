@@ -18,14 +18,18 @@ namespace SkyChat.Lib.Components.MainForm
     {
         // Define a object og Get File Path
         GetFilePath getFilePath;
+        // Create a object of Database Connection
+        DatabaseConnection databaseConnection;
         // Define a AuthConfig File Path
         private string MessagePositionPath;
         // Create a object of Message Position
         MessagePosition messagePosition;
+        // Define the AuthId, UserId, CollectionName
         private string _authId;
         private string _userId;
-        DatabaseConnection databaseConnection;
         private string _CollectionName;
+
+       
 
         public Chat_Container_Comp(string authId, string userId)
         {
@@ -38,12 +42,12 @@ namespace SkyChat.Lib.Components.MainForm
             this._authId = authId;
             this._userId = userId;
             databaseConnection = new DatabaseConnection();
-
             // Get Conversation Collection Name
             this._CollectionName = GetMessageDatabase(this._authId, this._userId);
            
         }
 
+        // Update the New incomming Message
         private void Chat_Container_Comp_Load(object sender, EventArgs e)
         {
             // Update the New incomming Message
@@ -125,7 +129,7 @@ namespace SkyChat.Lib.Components.MainForm
 
 
         }
-
+        // Get the message location
         private int MessageLocation()
         {
             string json = System.IO.File.ReadAllText(MessagePositionPath);
@@ -163,7 +167,7 @@ namespace SkyChat.Lib.Components.MainForm
             }
             return re;
         }
-
+        // Get the message database
         private string GetMessageDatabase(string authId, string userId)
         {
             string collectionOne = $"{authId}_{userId}";

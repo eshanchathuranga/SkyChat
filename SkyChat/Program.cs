@@ -25,6 +25,7 @@ namespace SkyChat
             {
                 Application.Run(indexForm);
             }
+            //Application.Run(new MainForm());
         }
     }
 }

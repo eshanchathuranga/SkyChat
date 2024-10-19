@@ -33,24 +33,10 @@ namespace SkyChat
             string json = System.IO.File.ReadAllText(AuthConfigPath);
             authConfig = JsonConvert.DeserializeObject<AuthConfig>(json);
             // Check already login or not
+
             if (authConfig._id != null)
             {
                 MainForm mainForm = new MainForm();
-                //mainForm.Show();
-                //Task.Run(() =>
-                //{
-                //    if (this.InvokeRequired)
-                //    {
-                //        this.BeginInvoke((MethodInvoker)delegate
-                //        {
-                //            this.Hide();
-                //        });
-                //    }
-                //    else
-                //    {
-                //        this.Hide();
-                //    }
-                //});
                 Application.Run(mainForm);
                 this.Close();
             }
@@ -95,7 +81,7 @@ namespace SkyChat
         }
 
 
-        // Create a clsas to store the auth config data
+        // Create a class to store the auth config data
         public class AuthConfig
         {
             public string _id { get; set; }
@@ -103,8 +89,6 @@ namespace SkyChat
             public string email { get; set; }
             public string password { get; set; }
             public string picUrl { get; set; }
-        }
-
-        
+        }   
     }
 }
